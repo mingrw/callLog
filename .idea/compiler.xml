@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dataProduction" />
+        <module name="dataShow" />
+        <module name="dataCollection" />
+        <module name="dataAnalysis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dataAnalysis" target="1.5" />
+      <module name="dataCollection" target="1.5" />
+      <module name="dataProduction" target="1.5" />
+      <module name="dataShow" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
