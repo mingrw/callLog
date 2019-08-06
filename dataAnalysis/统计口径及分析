@@ -1,0 +1,38 @@
+a)用户每天主叫通话个数统计，通话时间统计
+b)用户每天通话记录统计，通话时间统计
+c)用户之间亲密关系统计。（通话次数与通话时间体现用户亲密关系）
+d)用户月度话单统计，统计每月的通话时长，通话次数，通话次数最多的人，通话时长最长的人
+d)用户季度话单统计，统计每个季度的通话时长，通话次数，通话次数最多的人，通话时长最长的人
+e)用户年度话单统计 
+f)用户月度亲密度统计 
+g)用户季度亲密度统计 
+h)用户年度亲密度统计 
+关于亲密度算法：比较粗糙，根据每次不同通话不同的时长增加不同的亲密值，最终根据总时长再增加一个亲密值。
+
+SQL版本
+a)
+select count(1),sum(duration)
+from callLog
+where flag = 1
+group by masterPhone,masterName,substr(date,1,10)
+
+b)
+select count(1),sum(duration)
+from callLog
+group by masterPhone,masterName,substr(date,1,10)
+
+c)
+亲密度如何体现？次数和时长之间应该有一个权值
+统计出总的通话次数，通话总时长，根据这两个值来计算出亲密度
+select ...
+	   close+(case when total_duration.. then .. end) as close
+	select masterName
+		  ,masterPhone
+		  ,guestName
+		  ,guestPhone
+		  ,count(1) times
+		  ,sum(duration) total_duration
+		  ,sum(case when duration then 1
+		  		    else when ...) close
+	from callLog
+	group by masterName,masterPhone,guestName,guestPhone
